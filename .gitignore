@@ -32,7 +32,8 @@ htmlcov/
 .mypy_cache/
 
 # Data 
-data/
+# data/
 raw/
-models/
+# models/
 !.gitkeep
+data/ds_salaries.csv
