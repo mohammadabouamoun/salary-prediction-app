@@ -37,3 +37,4 @@ raw/
 # models/
 !.gitkeep
 data/ds_salaries.csv
+!.env.example
