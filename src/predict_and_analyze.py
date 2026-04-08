@@ -140,13 +140,13 @@ def store_in_supabase(input_params: Dict[str, Any], predicted_salary: float,
 if __name__ == "__main__":
     # You can modify this sample input or read from command line / config file
     sample_input = {
-        "experience_level": "SE",
+         "experience_level": "EN",
         "employment_type": "FT",
-        "job_title": "Data Scientist",
-        "remote_ratio": 100,
-        "company_size": "L",
-        "employee_residence": "US",
-        "company_location": "US"
+        "job_title": "Data Analyst",
+        "remote_ratio": 0,
+        "company_size": "S",
+        "employee_residence": "IN",
+        "company_location": "IN"
     }
     
     print("=== Salary Prediction Pipeline ===")
