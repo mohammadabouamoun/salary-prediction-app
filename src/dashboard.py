@@ -30,7 +30,10 @@ else:
             col1, col2 = st.columns(2)
             with col1:
                 st.subheader("Input Details")
-                st.json(record['input_data'])
+                cols = st.columns(2)
+                for i, (key, value) in enumerate(record['input_data'].items()):
+                    with cols[i % 2]:
+                        st.write(f"**{key.replace('_', ' ').title()}:** {value}")
                 st.subheader("LLM Narrative")
                 st.write(record['llm_narrative'])
             with col2:
@@ -43,9 +46,17 @@ else:
                     st.info("No chart available")
     
     st.subheader("Aggregate Insights")
-    df_inputs = pd.DataFrame([r['input_data'] for r in data])
-    if not df_inputs.empty:
+    if data:
+        # Create a simple DataFrame of predictions
+        df_records = pd.DataFrame([{
+            'Experience': r['input_data']['experience_level'],
+            'Job Title': r['input_data']['job_title'],
+            'Predicted Salary': f"${r['predicted_salary']:,.0f}"
+        } for r in data])
+    
         avg_salary = pd.DataFrame([r['predicted_salary'] for r in data]).mean()[0]
-        st.metric("Average Predicted Salary", f"${avg_salary:,.0f}")
-        job_counts = df_inputs['job_title'].value_counts().head(5)
-        st.bar_chart(job_counts)
+        st.metric("📊 Average Predicted Salary", f"${avg_salary:,.0f}")
+        st.write("**All Predictions:**")
+        st.dataframe(df_records, use_container_width=True, hide_index=True)
+    else:
+        st.info("No data available.")
