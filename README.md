@@ -68,10 +68,16 @@ bash
 python src/data_cleaning.py
 This creates data/cleaned_salaries.csv.
 
-7. Train the Decision Tree model
+7. Train the LightGBM model
 bash
 python src/train_model.py
-The model (models/salary_predictor.pkl) and feature columns list are saved.
+Expected output:
+
+text
+📊 Model Performance (LightGBM with engineered features):
+MAE: $29,489
+R² Score: 0.476
+✅ Model saved to models/salary_predictor.pkl
 
 8. Start the FastAPI prediction server (local)
 bash
@@ -109,11 +115,13 @@ company_location	string	2‑letter country code	US
 Example request:
 
 bash
-curl "https://salary-prediction-app-zxkx.onrender.com/predict?experience_level=SE&employment_type=FT&job_title=Data%20Scientist&remote_ratio=100&company_size=L&employee_residence=US&company_location=US"
-Example response:
+curl "https://salary-prediction-app-zxkx.onrender.com/predict?experience_level=MI&employment_type=FT&job_title=Data%20Engineer&remote_ratio=50&company_size=M&employee_residence=DE&company_location=DE"
+Example response: 
 
 json
-{"predicted_salary_usd":167346.79}
+  {"predicted_salary_usd":50134.00}
+
+
 📁 Project Structure
 text
 salary-prediction-app/

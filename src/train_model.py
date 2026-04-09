@@ -7,7 +7,8 @@ from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
-from sklearn.tree import DecisionTreeRegressor   # Decision Tree (spec requirement)
+from lightgbm import LGBMRegressor
+
 
 
 def train_salary_model(
@@ -88,12 +89,14 @@ def train_salary_model(
     )
 
     # ==============================
-    # 7. Model: Decision Tree (spec compliant)
+    # 7. Model: LGBMRegressor
     # ==============================
-    model = DecisionTreeRegressor(
-        max_depth=15,
-        min_samples_split=5,
-        random_state=42
+    model = LGBMRegressor(
+        n_estimators=300,          
+         max_depth=15,              
+         learning_rate=0.1,         
+         random_state=42,
+         verbose=-1                 
     )
 
     # ==============================
@@ -124,7 +127,7 @@ def train_salary_model(
     mae = mean_absolute_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
 
-    print("\n📊 Model Performance (Decision Tree with engineered features):")
+    print("\n📊 Model Performance (LightGBM with engineered features):")
     print(f"MAE: ${mae:,.0f}")
     print(f"R² Score: {r2:.3f}")
 

@@ -67,7 +67,7 @@ Narrative:
         "options": {"temperature": 0.7}
     }
     try:
-        response = requests.post(OLLAMA_URL, json=payload, timeout=30)
+        response = requests.post(OLLAMA_URL, json=payload, timeout=60)
         response.raise_for_status()
         result = response.json()
         return result["response"].strip()
@@ -140,13 +140,13 @@ def store_in_supabase(input_params: Dict[str, Any], predicted_salary: float,
 if __name__ == "__main__":
     # You can modify this sample input or read from command line / config file
     sample_input = {
-         "experience_level": "EN",
-        "employment_type": "FT",
-        "job_title": "Data Analyst",
-        "remote_ratio": 0,
-        "company_size": "S",
-        "employee_residence": "IN",
-        "company_location": "IN"
+         "experience_level": "MI",
+         "employment_type": "FT",
+         "job_title": "Data Engineer",
+         "remote_ratio": 50,
+         "company_size": "M",
+         "employee_residence": "DE",
+         "company_location": "DE"
     }
     
     print("=== Salary Prediction Pipeline ===")
