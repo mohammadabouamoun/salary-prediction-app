@@ -5,7 +5,8 @@ A pre‑generation architecture application that predicts data science job salar
 
 ## 🚀 Live Deliverables
 
-- **Streamlit Dashboard**: [https://mohammadabouamoun-salary-prediction-app-srcdashboard-fea-zc7zcr.streamlit.app/](https://mohammadabouamoun-salary-prediction-app-srcdashboard-fea-zc7zcr.streamlit.app/)
+- **Streamlit Dashboard**: [https://salary-prediction-app-9detb9yjvs2jgzemnmf25f.streamlit.app/ ](https://salary-prediction-app-9detb9yjvs2jgzemnmf25f.streamlit.app/)
+
 - **FastAPI Endpoint**: [https://salary-prediction-app-zxkx.onrender.com](https://salary-prediction-app-zxkx.onrender.com)
 
 ## 📐 Architecture Overview
