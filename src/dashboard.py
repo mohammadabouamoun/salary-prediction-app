@@ -41,7 +41,7 @@ else:
                 if record.get('chart_base64'):
                     img_data = base64.b64decode(record['chart_base64'])
                     img = Image.open(io.BytesIO(img_data))
-                    st.image(img, use_container_width=True)
+                    st.image(img, use_column_width=True)
                 else:
                     st.info("No chart available")
     
